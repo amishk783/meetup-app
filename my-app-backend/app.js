@@ -4,19 +4,18 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
-const sequelize = require("./util/database");
+const sequelize = require("./util/database")
+  const morgan= require('morgan');
 
 const SequelizeStore = require("express-session-sequelize")(session.Store);
 
 
 
-const sessionStore = new SequelizeStore({
-  db: sequelize,
-  
-})
+
 require('dotenv').config();
 
 const authRouter = require("./routes/auth");
+const meetupRouter = require("./routes/meetup")
 const meetupController = require("./Controllers/meetup");
 const verifyJWT = require('./middleware/verifyJWT')
 const User = require("./Modals/User");
@@ -28,15 +27,15 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(cors());
-app.use(session({ secret: "secret-key", resave: false, saveUninitialized: false ,store:sessionStore}));
+// app.use(session({ secret: "secret-key", resave: false, saveUninitialized: false ,store:sessionStore}));
+app.use(morgan('tiny'));
 
 
 
+app.use("/users",authRouter);
+app.use("/meetup", verifyJWT, meetupRouter);
 
-app.use("/users", authRouter);
 
-
-app.use("/add-meetup",verifyJWT, meetupController.postMeetup);
 
 app.use((req, res) => {
   res.status(404).send("<h1>Page not found</h1>");
@@ -46,7 +45,7 @@ Meetup.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 User.hasMany(Meetup);
 
 sequelize
-  .sync({force:true})
+  .sync() //{force:true}
   .then((result) => {
     // console.log(result);
     const server = http.createServer(app);

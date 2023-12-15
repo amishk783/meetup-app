@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    min-width: 30rem;
+    margin: 0 5rem 0 15rem;
+    
+
+}
+.container_item{
+    padding: 1rem;
+    min-width: 30rem;
+}

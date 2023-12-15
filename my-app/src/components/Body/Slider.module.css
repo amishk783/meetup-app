@@ -1,0 +1,37 @@
+.slider {
+  padding: 0 20rem 0 20rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+img {
+  padding: 1rem 10rem 2rem 10rem;
+  opacity: 0.8;
+  height: 500px;
+  width: 500px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 4rem 8rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.btn_round {
+  background-color: crimson;
+  padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+  color: white;
+  margin-top: 2rem;
+  transition: box-shadow 0.3s ease;
+  border-radius: 50px !important;
+  text-align: center;
+  font-size: 1rem;
+}
+img:hover {
+  opacity: 1;
+}
+p {
+  font-size:1.2rem;
+}

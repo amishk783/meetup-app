@@ -1,0 +1,32 @@
+.sign_up {
+  padding: 2rem 10rem 0 30rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 4rem 8rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.btn_round {
+  background-color: crimson;
+  padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+  color: white;
+  transition: box-shadow 0.3s ease;
+  border-radius: 50px !important;
+  text-align: center;
+  font-size: 1rem;
+}
+/* img {
+  padding: 1rem 10rem 2rem 10rem;
+  opacity: 0.8;
+  height: 200px;
+  width: 200px;
+}
+img:hover {
+  opacity: 1;
+} */

@@ -1,7 +1,6 @@
 const Sequelize = require("sequelize");
 
 const sequelize = require("../util/database");
-const User = require('./User')
 const Meetup = sequelize.define("meetup", {
   id: {
     type: Sequelize.INTEGER,
@@ -15,19 +14,20 @@ const Meetup = sequelize.define("meetup", {
   },
   address: {
     type: Sequelize.STRING,
-    allowNull:false
-  }
-  ,
+    allowNull: false,
+  },
   description: {
-    type:Sequelize.STRING,
-    allowNull:false
-  }
-    // date: {
-    //     type: Sequelize.DATEONLY,
-    //     allowNull: false,
-  // }
-  ,
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  date: {
+      type: Sequelize.STRING,
+      allowNull: false,
+  },
+  image: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 });
 
-// Meetup.belongsTo(User, { foreignKey: "userId", onDelete: "SET NULL" });
 module.exports = Meetup;

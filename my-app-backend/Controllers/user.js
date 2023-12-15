@@ -7,7 +7,10 @@ exports.postAddUser = async (req, res) => {
   const name = req.body.enteredName;
   const email = req.body.enteredEmail;
   const password = req.body.enteredPassword;
+  console.log(email, password, name);
   let newHashPassword;
+  const exisitingUser = await User.findOne({ where: { email } })
+  if (exisitingUser) return res.status(303).json({ message: "user already exists" });
   const saltRounds = 10;
     const salt = await bcrypt.genSalt(saltRounds);
     const hash = await bcrypt.hash(password, salt);
